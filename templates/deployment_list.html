@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">Kubernetes Deployments Dashboard</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+    </ul>
+{#    <form class="form-inline pull-xs-right">#}
+{#        <input class="form-control" type="text" placeholder="Search">#}
+{#        <button class="btn btn-success-outline" type="submit">Search</button>#}
+{#    </form>#}
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome aboard, Sailor!</h1>
+        <p class="lead">This is our Kubernetes Deployments Dashboard</p>
+        <hr class="m-y-2">
+{#        <p class="lead">#}
+{#            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>#}
+{#        </p>#}
+    </div>
+    <div>
+        <h1>Deployments</h1>
+        {% for deployment in deployments %}
+{#            <h2>#}
+{#            <a class="btn btn-primary-outline btn-sm text-md-left"#}
+{#               href="{{ url_for('deployments_get', name=deployment.name) }}" role="button">#}
+{#                    {{ deployment.name }}#}
+{#            </a>#}
+{#            </h2>#}
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        {{ deployment.name }}
+                        <small>
+                            <a href="{{ url_for('deployments_get', name=deployment.name) }}" class="card-link">View</a>
+                        </small>
+                    </h3>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+</body>
+</html>
