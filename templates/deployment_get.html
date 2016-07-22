@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
-          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-</head>
-<body>
-<nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">Kubernetes Deployments Dashboard</a>
-    <ul class="nav navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-    </ul>
-</nav>
-<div class="container">
+{% extends "base.html" %}
+{% block content %}
     <div class="card">
         <div class="card-header">
-            <h3>
+            <h1>
                 {{ deployment.name }}
-            </h3>
+                <small class="text-muted">Replicas: {{ deployment.replicas }}</small>
+            </h1>
         </div>
         <div class="card-block">
-            <p class="card-text">
-                <small class="text-muted">Replicas: {{ deployment.replicas }}</small>
-            </p>
             <p class="card-text">
               <h4> Running images </h4>
               {% for container in deployment.obj['spec']['template']['spec']['containers'] %}
@@ -44,9 +16,4 @@
             <p>
         </div>
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
-        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
