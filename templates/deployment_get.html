@@ -36,6 +36,12 @@
             <p class="card-text">
                 <small class="text-muted">Replicas: {{ deployment.replicas }}</small>
             </p>
+            <p class="card-text">
+              <h4> Running images </h4>
+              {% for container in deployment.obj['spec']['template']['spec']['containers'] %}
+                {{ container['image'] }}
+              {% endfor %}
+            <p>
         </div>
     </div>
 </div>
