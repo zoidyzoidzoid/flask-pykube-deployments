@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-@app.route('/deployments')
+@app.route('/deployments/')
 def deployments_list():
     deployments = Deployment.objects(api).filter(namespace='default')
     return render_template('deployment_list.html', deployments=deployments)
